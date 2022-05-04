@@ -5,5 +5,5 @@ This program manage all the sensors and electronic components connected to the r
 First you have to install the requirements listed in `requirements.txt` and then launch it.
 
 ```bash
-./main.py
+python3 main.py
 ```
