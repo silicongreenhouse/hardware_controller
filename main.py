@@ -1,10 +1,30 @@
-import Adafruit_DHT
+from sys import exec_prefix
 import time
-from sensors.humtat_temperatura import HumitatTemperatura
+from sensors.humitat_temperatura import HumitatTemperatura
+from executors.rele import Relay
 
-DHT_SENSOR = HumitatTemperatura(4)
+from sensors.ultrasons import Ultrasons
+
+
+dht_sensor = HumitatTemperatura(4)
+rele = Relay(17)
+ultrasons = Ultrasons()
 
 while True:
-  humidity, temperature = DHT_SENSOR.read()
+  humidity, temperature = dht_sensor.read()
   print(f'{humidity}% {temperature}*C')
-  time.sleep(2)
+  nivell_aigua = ultrasons.mesura()
+  try:
+    rele.open()
+  except KeyboardInterrupt:
+    print("Keyboard interrupt")
+  except:
+    print("some error")
+
+  # finally:
+  #   rele.open()
+  #   rele.cleanup()
+
+  print(nivell_aigua)
+
+  time.sleep(1)
