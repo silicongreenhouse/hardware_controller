@@ -1,6 +1,6 @@
 root = true
 
 [*]
-indent_size = 2
+indent_size = 4
 intent_style = space
 charset = utf-8
