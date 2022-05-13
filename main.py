@@ -1,22 +1,28 @@
+#!/usr/bin/python3
+
 import threading
 import json
 import os
-import time
-from sensors.humitat_temperatura import HumitatTemperatura
-from sensors.ultrasons import Ultrasons
-from sensors.moisure import Moisure
 import RPi.GPIO as GPIO
+import time
 
-## No es toca s'ha de posar en aquest mode abans d'utilitzar qualsevol sensor
-GPIO.setmode(GPIO.BOARD)
+from executors.fans import Fans
+from executors.water_pump import WaterPump
+from sensors.temperature import Temperature
+from sensors.moisure import Moisure
+from sensors.ultrasons import Ultrasons
+
+GPIO.setmode(GPIO.BCM)
+
+ultrasounds = Ultrasons()
 
 config_path = os.environ["CONFIG_PATH"]
 config_file = open(config_path)
-config = json.load(config_file)
-print(config["sensors"][0]["events"][0])
 
-sensor = Moisure()
-x = threading.Thread(target=Moisure)
 while True:
-    print(sensor.read())
+    print("do something")
+    print(ultrasounds.read())
+    print("do something")
     time.sleep(1)
+
+GPIO.cleanup()

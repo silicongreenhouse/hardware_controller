@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from executor import Executor
+from .executor import Executor
 
 
 class WaterPump(Executor):

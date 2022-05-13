@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 
 class Moisure:
-    def __init__(self, pin=26):
+    def __init__(self, pin=37):
         self.pin = pin
         GPIO.setup(self.pin, GPIO.IN)
 
