@@ -1,13 +1,14 @@
 import RPi.GPIO as GPIO
-import time
+from executor import Executor
 
-class Water_pump:
+
+class WaterPump(Executor):
     def __init__(self, pin=12):
         self.pin = pin
         GPIO.setup(self.pin, GPIO.OUT)
-    
-    def start(self):
+
+    def setOn(self):
         GPIO.output(self.pin, True)
 
-    def end(self):
+    def setOff(self):
         GPIO.output(self.pin, False)
