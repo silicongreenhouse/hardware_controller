@@ -15,19 +15,9 @@ class Temperature:
 
     """    
     def read(self):
-        total_temperature = 0
-        i = 0
+        temperature = None
 
-        while i < 5:
+        while temperature == None:
             _, temperature = DHT.read(self.model, self.pin)
-            if temperature == None:
-                continue
-            
-            total_temperature += temperature
-
-            i += 1
-            time.sleep(0.2)
-        
-        temperature = total_temperature / 5
-
+           
         return temperature

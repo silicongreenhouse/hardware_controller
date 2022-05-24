@@ -7,4 +7,8 @@ class Moisure:
 
     
     def read(self):
-      return GPIO.input(self.pin) == 0
+        gpio_input = GPIO.input(self.pin) == 0
+        if gpio_input:
+            return "high"
+        else:
+            return "low"
