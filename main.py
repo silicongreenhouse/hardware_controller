@@ -14,6 +14,7 @@ from sensors.ultrasounds import Ultrasounds
 
 # Read a dictionary and load events into an array
 def load_events(events_data):
+    events = []
     for sensor in events_data["sensors"]:
         try:
             for event in sensor["events"]:
@@ -22,6 +23,8 @@ def load_events(events_data):
 
         except:
             continue
+
+    return events
 
 
 # Get an event and check sensors based on event data
@@ -68,4 +71,4 @@ data = json.loads(file.read())
 file.close()
 
 
-load_events(data)
+events = load_events(data)
