@@ -1,6 +1,3 @@
 class Executor:
-    def setOn(self):
-        pass
-
-    def setOff(self):
+    def setState(self):
         pass

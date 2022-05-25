@@ -1,7 +1,7 @@
 from gpiozero import DistanceSensor
 import time
 
-class Ultrasons:
+class Ultrasounds:
     def __init__(self):
         self.sensor = DistanceSensor(echo=27, trigger=22, max_distance=500)
 

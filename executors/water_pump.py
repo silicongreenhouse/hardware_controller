@@ -8,8 +8,8 @@ class WaterPump(Executor):
         GPIO.setup(self.pin, GPIO.OUT)
         self.setOff()
 
-    def setOn(self):
-        GPIO.output(self.pin, True)
-
-    def setOff(self):
-        GPIO.output(self.pin, False)
+    def setState(self, state):
+        if state == "on":
+            GPIO.output(self.pin, True)
+        elif state == "off":
+            GPIO.output(self.pin, False)

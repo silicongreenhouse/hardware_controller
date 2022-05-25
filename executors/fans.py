@@ -8,8 +8,8 @@ class Fans(Executor):
         self.pin = pin
         GPIO.setup(self.pin, GPIO.OUT)
 
-    def setOn(self):
-        GPIO.output(self.pin, GPIO.HIGH)
-
-    def setOff(self):
-        GPIO.output(self.pin, GPIO.LOW)
+    def setState(self, state):
+        if state == "on":
+            GPIO.output(self.pin, GPIO.HIGH)
+        elif state == "off":
+            GPIO.output(self.pin, GPIO.LOW)
