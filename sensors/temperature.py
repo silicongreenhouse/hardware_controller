@@ -1,7 +1,8 @@
 import Adafruit_DHT as DHT
+import time
 
-class HumitatTemperatura:
-    def __init__(self, pin):
+class Temperature:
+    def __init__(self, pin=4):
         self.pin = pin
         self.model = DHT.DHT11
 
@@ -14,5 +15,9 @@ class HumitatTemperatura:
 
     """    
     def read(self):
-        humidity, temperature = DHT.read(self.model, self.pin)
-        return humidity, temperature
+        temperature = None
+
+        while temperature == None:
+            _, temperature = DHT.read(self.model, self.pin)
+           
+        return temperature
